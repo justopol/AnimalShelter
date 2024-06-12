@@ -2,6 +2,7 @@ package pl.shelter.managers;
 
 import model.Address;
 import model.Adopter;
+import model.enums.AdopterType;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -42,7 +43,7 @@ class AdopterManagerTest {
     void testAddAdopter_BDD() throws AppException {
         //given
         Address address = new Address("Lane", "123", "Lodz");
-        Adopter adopter = new Adopter(UUID.randomUUID(), "Jack", "Lake", address, AdopterTypeFactory.getStandardAdopterType());
+        Adopter adopter = new Adopter(UUID.randomUUID(), "Jack", "Lake", address, AdopterType.STANDARD);
         given(adopterRepository.findBy((Predicate<Adopter>) any())).willReturn(Collections.emptyList());
         given(adopterRepository.getAll()).willReturn(List.of(adopter));
         //when

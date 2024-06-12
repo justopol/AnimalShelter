@@ -1,6 +1,7 @@
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import model.Adopter;
+import model.enums.AdopterType;
 import org.junit.jupiter.api.Test;
 import pl.shelter.exceptions.AdopterException;
 import pl.shelter.managers.AdopterManager;
@@ -18,7 +19,7 @@ public class AdopterManagerIntegrationTest {
     public void addAdopter() throws AdopterException {
         //given adopter does not exist
         Adopter adopter = new Adopter(UUID.randomUUID(), "Jake", "Lane",
-                null, AdopterTypeFactory.getStandardAdopterType());
+                null, AdopterType.STANDARD);
         //when and then
         assertDoesNotThrow(() -> adopterManager.addAdopter(adopter));
     }
@@ -28,9 +29,9 @@ public class AdopterManagerIntegrationTest {
         //given adopter does not exist
         UUID uuid = UUID.randomUUID();
         Adopter adopter1 = new Adopter(uuid, "Jake", "Lane",
-                null, AdopterTypeFactory.getStandardAdopterType());
+                null, AdopterType.STANDARD);
         Adopter adopter2 = new Adopter(uuid, "Jake", "Lane",
-                null, AdopterTypeFactory.getStandardAdopterType());
+                null, AdopterType.STANDARD);
 
         assertDoesNotThrow(() -> adopterManager.addAdopter(adopter1));
         //when
