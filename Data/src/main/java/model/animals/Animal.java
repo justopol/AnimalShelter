@@ -8,8 +8,11 @@ import model.enums.Bloodness;
 import java.util.UUID;
 
 public abstract class Animal extends AbstractEntity {
-    private boolean isAvailable;
+    private boolean available;
     private double basicPrice = 20;
+
+
+    protected AdoptionStatus adoptionStatus = AdoptionStatus.FOR_ADOPTION;
 
 
     private Adoption currentAdoption;
@@ -20,9 +23,13 @@ public abstract class Animal extends AbstractEntity {
 
     protected abstract Bloodness getBloodness();
 
+    public abstract boolean isReadyForAdoption();
+    public AdoptionStatus getAdoptionStatus() {
+        return adoptionStatus;
+    }
 
-    public void setAvailable(boolean available) {
-        isAvailable = available;
+    public void setAdoptionStatus(AdoptionStatus adoptionStatus) {
+        this.adoptionStatus = adoptionStatus;
     }
 
 

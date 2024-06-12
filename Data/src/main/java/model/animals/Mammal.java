@@ -1,22 +1,31 @@
 package model.animals;
 
+import model.enums.AdoptionStatus;
 import model.enums.Bloodness;
 
-public class Mammal extends Animal{
+public class Mammal extends Animal {
 
-    private boolean castration;
+    private boolean castrated;
 
-    protected boolean isCastration() {
-        return castration;
+    public boolean isCastrated() {
+        return castrated;
     }
 
-    protected void setCastration(boolean castration) {
-        this.castration = castration;
+    public void setCastrated(boolean castrated) {
+        this.castrated = castrated;
     }
 
     @Override
     protected Bloodness getBloodness() {
         return Bloodness.WARM;
+    }
+
+    @Override
+    public boolean isReadyForAdoption() {
+        if (castrated && adoptionStatus.equals(AdoptionStatus.FOR_ADOPTION)) {
+            return false;
+        }
+            return true;
     }
 
 

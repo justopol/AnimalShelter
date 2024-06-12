@@ -12,33 +12,35 @@ public class Adoption extends AbstractEntity{
     private UUID uuid;
     private LocalDate startAdoptionTime;
     private LocalDate endAdoptionTime;
-
-    private AdoptionStatus adoptionStatus;
     private Adopter adopter;
     private Animal animal;
     private double finalAdoptionCost;
 
     public Adoption() {
         super(UUID.randomUUID());
-        this.adoptionStatus = AdoptionStatus.FOR_ADOPTION;
     }
 
     public void createAdoption(LocalDate startAdoptionTime, Adopter adopter, Animal animal) throws AdoptionException {
+        if (animal ==null){
+            throw new AdoptionException(AdoptionException.ANIMAL_NOT_EXISTS);
+        }
         this.startAdoptionTime = startAdoptionTime;
         this.adopter = adopter;
+        if (animal.isReadyForAdoption()){//to do
+            }
         if (animal.getCurrentAdoption() != null) {
             throw new AdoptionException(AdoptionException.ANIMAL_ADOPTED);
         }
         this.animal = animal;
         animal.addAdoption(this);
-        this.adoptionStatus = AdoptionStatus.UNDER_ADOPTION;
+        animal.setAdoptionStatus(AdoptionStatus.UNDER_ADOPTION);
         this.finalAdoptionCost = animal.getAdoptionPrice() * (1 - adopter.getDiscount()) * animal.getBloodnessMultiplier();
     }
     public void finishAdoption(LocalDate endAdoptionTime) throws AdoptionException {
-        this.adoptionStatus = AdoptionStatus.ADOPTED;
         if (animal ==null){
             throw new AdoptionException(AdoptionException.ANIMAL_NOT_EXISTS);
         }
+        this.animal.setAdoptionStatus(AdoptionStatus.ADOPTED);
         animal.removeAdoption();
         if (endAdoptionTime.isBefore(startAdoptionTime)){
             throw new AdoptionException(AdoptionException.TIME_EXCEPTION);
