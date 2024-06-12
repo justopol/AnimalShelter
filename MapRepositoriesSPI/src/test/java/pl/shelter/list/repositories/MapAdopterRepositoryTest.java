@@ -3,7 +3,6 @@ package pl.shelter.list.repositories;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import model.Adopter;
-import model.adopter.AdopterTypeFactory;
 import org.jboss.logging.Logger;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

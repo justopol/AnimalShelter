@@ -2,7 +2,6 @@ package pl.shelter.managers;
 
 import model.Address;
 import model.Adopter;
-import model.adopter.AdopterTypeFactory;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;

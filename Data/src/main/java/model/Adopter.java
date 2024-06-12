@@ -1,7 +1,6 @@
 package model;
 
-import model.adopter.AdopterType;
-import model.enums.AdoptionStatus;
+import model.enums.AdopterType;
 import pl.shelter.exceptions.AdopterException;
 
 import java.util.UUID;
@@ -13,9 +12,9 @@ public class Adopter extends AbstractEntity {
     private AdopterType adopterType;
 
 
-    public Adopter(UUID uuid,String firstName, String lastName, Address address, AdopterType adopterType) throws AdopterException {
+    public Adopter(UUID uuid, String firstName, String lastName, Address address, AdopterType adopterType) throws AdopterException {
         super(uuid);
-        if (adopterType.isBaned()) {
+        if (AdopterType.BLACKLISTED.equals(adopterType)) {
             throw new AdopterException(AdopterException.BLACKLIST_ADOPTER);
         }
         this.firstName = firstName;
@@ -29,7 +28,11 @@ public class Adopter extends AbstractEntity {
     }
 
     public double getDiscount() {
-        return adopterType.getAdoptionDiscount();
+        return switch (adopterType) {
+            case STANDARD, BLACKLISTED -> 0.0;
+            case PREVIOUS_ADOPTER -> 0.5;
+        };
+
     }
 
 }

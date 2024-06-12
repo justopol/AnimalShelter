@@ -1,7 +1,6 @@
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import model.Adopter;
-import model.adopter.AdopterTypeFactory;
 import org.junit.jupiter.api.Test;
 import pl.shelter.exceptions.AdopterException;
 import pl.shelter.managers.AdopterManager;

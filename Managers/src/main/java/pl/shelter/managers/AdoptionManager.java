@@ -3,6 +3,7 @@ package pl.shelter.managers;
 import model.Adopter;
 import model.Adoption;
 import model.animals.Animal;
+import model.enums.AdopterType;
 import pl.shelter.exceptions.AdopterException;
 import pl.shelter.exceptions.AdoptionException;
 import pl.shelter.exceptions.AppException;
@@ -20,7 +21,7 @@ public class AdoptionManager {
     }
 
     public void createAdoption(Animal animal, Adopter adopter) throws AppException {
-        if (adopter.getAdopterType().isBaned()) {
+        if (adopter.getAdopterType().equals(AdopterType.BLACKLISTED)) {
             throw new AdoptionException(AdopterException.BLACKLIST_ADOPTER);
         }
         if (isAnimalAdopted(animal)) {
