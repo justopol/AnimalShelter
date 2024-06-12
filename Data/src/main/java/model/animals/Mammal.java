@@ -19,16 +19,5 @@ public class Mammal extends Animal{
         return Bloodness.WARM;
     }
 
-    @Override
-    protected void setAdoptionCost(double adoptionCost) {
-        //to do
-    }
-
-    @Override
-    public double getAdoptionCost() {
-        //to do
-        return 0;
-    }
-
 
 }

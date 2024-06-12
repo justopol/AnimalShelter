@@ -6,7 +6,6 @@ import pl.shelter.exceptions.AdoptionException;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.PrimitiveIterator;
 import java.util.UUID;
 
 public class Adoption extends AbstractEntity{
@@ -33,7 +32,7 @@ public class Adoption extends AbstractEntity{
         this.animal = animal;
         animal.addAdoption(this);
         this.adoptionStatus = AdoptionStatus.UNDER_ADOPTION;
-        this.finalAdoptionCost = animal.getAdoptionCost() * (1 - adopter.getDiscount()) * animal.getBloodnessMultiplier();
+        this.finalAdoptionCost = animal.getAdoptionPrice() * (1 - adopter.getDiscount()) * animal.getBloodnessMultiplier();
     }
     public void finishAdoption(LocalDate endAdoptionTime) throws AdoptionException {
         this.adoptionStatus = AdoptionStatus.ADOPTED;
