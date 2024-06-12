@@ -2,7 +2,7 @@ package model.animals;
 
 import model.enums.Bloodness;
 
-public abstract class Mammal extends Animal{
+public class Mammal extends Animal{
 
     private boolean castration;
 
@@ -17,6 +17,17 @@ public abstract class Mammal extends Animal{
     @Override
     protected Bloodness getBloodness() {
         return Bloodness.WARM;
+    }
+
+    @Override
+    protected void setAdoptionCost(double adoptionCost) {
+        //to do
+    }
+
+    @Override
+    public double getAdoptionCost() {
+        //to do
+        return 0;
     }
 
 

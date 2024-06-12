@@ -2,10 +2,8 @@ package model;
 
 import model.adopter.AdopterTypeFactory;
 import model.animals.Animal;
-import model.animals.Dog;
-import model.animals.Snake;
-import model.enums.AdoptionStatus;
-import model.enums.DogSize;
+import model.animals.Mammal;
+import model.animals.Reptile;
 import pl.shelter.exceptions.AdopterException;
 import org.junit.jupiter.api.Test;
 import pl.shelter.exceptions.AdoptionException;
@@ -19,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AdoptionTest {
     @Test
     public void adoptionTestWhenAdopterTypeIsStandard() throws AdopterException, AdoptionException {
-        Animal animal = new Dog(DogSize.BIG);
+        Animal animal = new Mammal();
         Address address = new Address("Lane", "123", "Lodz");
         Adopter adopter = new Adopter(UUID.randomUUID(), "Jason", "Clark", address, AdopterTypeFactory.getStandardAdopterType());
         Adoption adoption = new Adoption();
@@ -30,7 +28,7 @@ class AdoptionTest {
 
     @Test
     public void adoptionTestWhenAdopterTypeIsPrevously() throws AdopterException, AdoptionException {
-        Animal animal = new Dog(DogSize.BIG);
+        Animal animal = new Mammal();
         Address address = new Address("Lane", "123", "Lodz");
         Adopter adopter = new Adopter(UUID.randomUUID(), "Jason", "Clark", address, AdopterTypeFactory.getPrevouslyAdopterType());
         Adoption adoption = new Adoption();
@@ -41,7 +39,7 @@ class AdoptionTest {
 
     @Test
     public void adoptionTestWhenAdopterIsBlacklisted() throws AdopterException {
-        Animal animal = new Dog(DogSize.BIG);
+        Animal animal = new Mammal();
         Address address = new Address("Lane", "123", "Lodz");
         assertThrows(AdopterException.class, () -> new Adopter(UUID.randomUUID(), "Jason", "Clark", address, AdopterTypeFactory.getBlacklistOfAdoptersType()));
 
@@ -49,7 +47,7 @@ class AdoptionTest {
 
     @Test
     public void adoptionTestWhenAdopterTypeIsStandardWithReptile() throws AdopterException, AdoptionException {
-        Animal animal = new Snake();
+        Animal animal = new Reptile();
         Address address = new Address("Lane", "123", "Lodz");
         Adopter adopter = new Adopter(UUID.randomUUID(), "Jason", "Clark", address, AdopterTypeFactory.getStandardAdopterType());
         Adoption adoption = new Adoption();
@@ -59,7 +57,7 @@ class AdoptionTest {
 
     @Test
     public void adoptionTestWhenAnimalIsAlreadyAdopted() throws AdopterException, AdoptionException {
-        Animal animal = new Dog(DogSize.BIG);
+        Animal animal = new Mammal();
         Address address = new Address("Lane", "123", "Lodz");
         Adopter adopter = new Adopter(UUID.randomUUID(), "Jason", "Clark", address, AdopterTypeFactory.getPrevouslyAdopterType());
         Adoption adoption = new Adoption();
@@ -70,7 +68,7 @@ class AdoptionTest {
 
     @Test
     public void finishAdoptionWhenAnimalNotNull() throws AdopterException, AdoptionException {
-        Animal animal = new Snake();
+        Animal animal = new Reptile();
         Address address = new Address("Lane", "123", "Lodz");
         Adopter adopter = new Adopter(UUID.randomUUID(), "Jason", "Clark", address, AdopterTypeFactory.getStandardAdopterType());
         Adoption adoption = new Adoption();
@@ -83,7 +81,7 @@ class AdoptionTest {
 
     @Test
     public void finishAdoptionWhenAnimalIsNull() throws AdopterException, AdoptionException {
-        Animal animal = new Snake();
+        Animal animal = new Reptile();
         Address address = new Address("Lane", "123", "Lodz");
         Adopter adopter = new Adopter(UUID.randomUUID(), "Jason", "Clark", address, AdopterTypeFactory.getStandardAdopterType());
         Adoption adoption = new Adoption();
@@ -91,7 +89,7 @@ class AdoptionTest {
     }
     @Test
     public void endDAteBeforeStartDate() throws AdopterException, AdoptionException {
-        Animal animal = new Snake();
+        Animal animal = new Reptile();
         Address address = new Address("Lane", "123", "Lodz");
         Adopter adopter = new Adopter(UUID.randomUUID(), "Jason", "Clark", address, AdopterTypeFactory.getStandardAdopterType());
         Adoption adoption = new Adoption();
