@@ -24,6 +24,7 @@
         <module>RepositoryAPI</module>
         <module>ListRepositoriesSPI</module>
         <module>MapRepositoriesSPI</module>
+        <module>REST</module>
     </modules>
 
     <properties>

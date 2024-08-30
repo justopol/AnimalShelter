@@ -1,0 +1,54 @@
+GET http://localhost:8080/REST-1.0-SNAPSHOT/api/hello-world
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-30T144145.200.txt
+
+###
+
+GET http://localhost:8080/REST-1.0-SNAPSHOT/api/hello-world
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-30T144046.200.txt
+
+###
+
+GET http://localhost:8080/api/hello-world
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-30T143620.404.html
+
+###
+
+GET http://localhost:8080/hello-world
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-30T140321.404.html
+
+###
+
+GET http://localhost:8080/api/hello-world
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-30T140311.404.html
+
+###
+
+GET http://localhost:8080/hello-world
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-08-30T135503.404.html
+
+###
+
